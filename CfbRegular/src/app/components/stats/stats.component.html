@@ -1,0 +1,13 @@
+<ng-container *ngIf="!loading">
+    <mat-card>
+        <div fxLayout="row wrap" fxLayoutAlign="center  center">
+            <ng-container *ngFor="let week of LeagueData.Weeks">
+                <button mat-flat-button class="week-button" [color]="week.Number === Week ? 'primary' : 'default'" (click)="SetWeek(week.Number)">{{ week.Number }} </button>
+            </ng-container>
+        </div>
+    </mat-card>
+    <br />
+    
+    <app-week [LeagueData]="LeagueData" [Week]="Week"></app-week>
+</ng-container>
+

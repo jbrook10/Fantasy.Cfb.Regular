@@ -1,0 +1,15 @@
+
+<ng-container *ngIf="!!CurrentWeek">
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+        <h3>Week {{Week}}</h3>
+        <h3>{{CurrentWeek.Start | date}} - {{CurrentWeek.End | date}}</h3>
+    </div>
+    
+    <mat-card class="leaderboard-card">
+        <app-week-leaderboard [Owners]="Owners" [Week]="Week"></app-week-leaderboard>
+    </mat-card>
+    
+    <div *ngFor="let owner of Owners" class="owner-block">
+        <app-owner [Owner]="owner" [Week]="Week"></app-owner>
+    </div>
+</ng-container>

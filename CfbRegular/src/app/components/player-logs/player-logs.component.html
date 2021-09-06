@@ -1,0 +1,90 @@
+<div mat-dialog-title>
+    <div>
+        <span>
+            <a class="player-name" [href]="data.Link" target="_blank">{{data.Name}} </a></span><span
+            class="player-info">{{data.School}} - {{data.Position | uppercase}}
+        </span>
+    </div>
+    <span class="player-score">Total Points: {{data.Score}}</span>
+    <span class="player-score">Average Points: {{data.Avg}}</span>
+
+</div>
+
+<div mat-dialog-content>
+    <table mat-table [dataSource]="dataSource" class="table-data">
+
+        <!-- Week -->
+        <ng-container matColumnDef="Week">
+            <th mat-header-cell *matHeaderCellDef class="stat-col"> Wk </th>
+            <td mat-cell *matCellDef="let element"> {{element.Week}} </td>
+            <!-- <td mat-footer-cell *matFooterCellDef></td> -->
+        </ng-container>
+
+        <!-- PassYds -->
+        <ng-container matColumnDef="PassYds">
+            <th mat-header-cell *matHeaderCellDef class="stat-col"> Pass </th>
+            <td mat-cell *matCellDef="let element"> {{element.PassYds}} </td>
+            <!-- <td mat-footer-cell *matFooterCellDef></td> -->
+
+        </ng-container>
+
+        <!-- RushYds -->
+        <ng-container matColumnDef="RushYds">
+            <th mat-header-cell *matHeaderCellDef class="stat-col"> Rush </th>
+            <td mat-cell *matCellDef="let element"> {{element.RushYds }} </td>
+            <!-- <td mat-footer-cell *matFooterCellDef></td> -->
+        </ng-container>
+
+        <!-- RecYds -->
+        <ng-container matColumnDef="RecYds">
+            <th mat-header-cell *matHeaderCellDef class="stat-col"> RecY </th>
+            <td mat-cell *matCellDef="let element"> {{element.RecYds }} </td>
+            <!-- <td mat-footer-cell *matFooterCellDef></td> -->
+        </ng-container>
+
+        <!-- Rec -->
+        <ng-container matColumnDef="Rec">
+            <th mat-header-cell *matHeaderCellDef class="stat-col"> Rec </th>
+            <td mat-cell *matCellDef="let element"> {{element.Rec}} </td>
+            <!-- <td mat-footer-cell *matFooterCellDef></td> -->
+        </ng-container>
+
+        <!-- Td -->
+        <ng-container matColumnDef="Tds">
+            <th mat-header-cell *matHeaderCellDef class="stat-col"> TDs </th>
+            <td mat-cell *matCellDef="let element"> {{element.Tds}} </td>
+            <!-- <td mat-footer-cell *matFooterCellDef></td> -->
+        </ng-container>
+
+        <!-- Score -->
+        <ng-container matColumnDef="Score">
+            <th mat-header-cell *matHeaderCellDef class="stat-col"> Tot </th>
+            <td mat-cell *matCellDef="let element"> {{element.Score}} </td>
+            <!-- <td mat-footer-cell *matFooterCellDef>{{total}}</td> -->
+        </ng-container>
+
+        <!-- Opponent -->
+        <ng-container matColumnDef="Opp">
+            <th mat-header-cell *matHeaderCellDef class="stat-col">
+                Opp </th>
+            <td mat-cell *matCellDef="let element">
+                <span class="game-date">
+                    <span class="vs">{{element.Vs}}</span>&nbsp;
+                    <span class="opponent">{{element.Opp}}</span>
+                </span>
+                <br />
+                <span class="game-date" *ngIf="!element.IsLog">{{element.Date | date: 'M/d - h:mm a' }}</span>
+                <span class="game-date" *ngIf="element.IsLog">Final: {{element.Date | date: 'M/d' }} </span>
+
+            </td>
+            <!-- <td mat-footer-cell *matFooterCellDef [class.hidden-row]="(isHandset$ | async)"   ></td> -->
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns:  columns; let i = index"></tr>
+        <!-- <tr mat-footer-row *matFooterRowDef="columns" class="footer-row"></tr> -->
+
+    </table>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+</div>

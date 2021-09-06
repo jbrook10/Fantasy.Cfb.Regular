@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.32" />
+    <PackageReference Include="Amazon.S3" Version="4.0.0" />
+    <PackageReference Include="AWSSDK.S3" Version="3.7.0.18" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fantasy.Cfb.Regular.Domain\Fantasy.Cfb.Regular.Domain.csproj" />
+  </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+</Project>
