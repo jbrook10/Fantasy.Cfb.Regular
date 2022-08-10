@@ -12,6 +12,8 @@ import { map, shareReplay } from 'rxjs/operators';
 export class NavigationComponent implements OnInit {
 
   Year = '';
+  Years: number[] = [];
+
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -26,6 +28,12 @@ export class NavigationComponent implements OnInit {
       this.Year = today.getFullYear() - 1 + '';
     } else {
       this.Year = new Date().getFullYear() + '';
+    }
+
+    for (let index = 2019; index <= today.getFullYear(); index++) {
+      if (index !== 2020) { // covid sucks
+        this.Years.push(index)
+      }
     }
 
   }

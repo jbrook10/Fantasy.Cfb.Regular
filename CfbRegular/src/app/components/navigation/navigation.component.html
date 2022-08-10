@@ -8,8 +8,9 @@
     <div style="padding: 10px;">
       <mat-form-field appearance="standard" class="year-chooser">
         <mat-select  [(value)]="Year" disabled="false" (valueChange)="loadFile()" >
-          <mat-option value="2019">2019</mat-option>
-          <mat-option value="2021">2021</mat-option>
+          <ng-container *ngFor="let y of Years">
+            <mat-option value="{{y}}">{{y}}</mat-option>
+          </ng-container>
         </mat-select>
       </mat-form-field>
     </div>
