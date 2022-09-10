@@ -74,4 +74,5 @@ export interface IWeekScoreLog {
     Date: Date;
     Vs: string;
     Complete: boolean;
+    css: string;
 }

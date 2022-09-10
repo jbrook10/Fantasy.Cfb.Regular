@@ -103,3 +103,23 @@ table {
     color: rgba(0,0,0,.33);
     margin-top: 10px;
   }
+
+  .lvl4 {
+    border-right: 3px solid;
+    border-right-color: rgb(7, 220, 7);
+  }
+
+  .lvl3 {
+    border-right: 3px solid;
+    border-right-color: rgb(80, 150, 255);
+  }
+
+  .lvl2 {
+    border-right: 3px solid;
+    border-right-color: yellow;
+  }
+
+  .lvl1 {
+    border-right: 3px solid;
+    border-right-color: red;
+  }

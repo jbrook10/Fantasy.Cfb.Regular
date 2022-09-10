@@ -59,6 +59,7 @@ export class OwnerComponent implements OnChanges {
         player.WorkingLogs.forEach(log => {
 
           const gameDate = new Date(log.Date);
+          const lvl = !log.IsLog ? '' : log.Score >= 40 ? 'lvl4' : log.Score >= 30 ? 'lvl3' : log.Score >= 20 ? 'lvl2' : 'lvl1';
 
           this.playerLogs.push(
             {
@@ -76,7 +77,8 @@ export class OwnerComponent implements OnChanges {
               School: player.School,
               Date: log.Date,
               Vs: log.Vs,
-              Complete: log.IsLog
+              Complete: log.IsLog,
+              css: lvl
             }
           );
 
@@ -96,7 +98,8 @@ export class OwnerComponent implements OnChanges {
               School: player.School,
               Date: log.Date,
               Vs: log.Vs,
-              Complete: log.IsLog
+              Complete: log.IsLog,
+              css: lvl
             }
           );
         });
